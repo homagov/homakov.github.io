@@ -2,6 +2,15 @@
 <html manifest="/m.appcache">
 <head>
   <title>Left</title>
+
+    <meta name='viewport' content='width=device-width'/>
+    <meta name="application-name" content="Truefactor" />
+    <meta name="apple-mobile-web-app-title" content="Truefactor">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
   <script>
 
 function add(cur) {
@@ -52,7 +61,7 @@ window.onload = function(){
 
 <p><div style="width:100%;max-width:500px;font-size: 120px" id=ebudget>0</div></p>
 
-<p><input class=b placeholder="Amount" type="number" id="eamount"/></p>
+<p><input class=b placeholder="Amount" type="text" pattern="\d*-" id="eamount"/></p>
 
 <p><button class=b onclick=add('baht')>Spend (Baht)</button></p>
 
