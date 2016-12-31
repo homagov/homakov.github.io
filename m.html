@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html manifest="/m.appcache">
+<head>
+  <title>Left</title>
+  <script>
+
+function add(cur) {
+  if(eamount.value.length == 0) return;
+
+  var number = (0 - parseInt(eamount.value))
+  eamount.value = '';
+  
+  if(cur == 'baht'){
+    number = Math.round(number / 35.8)
+  }
+
+  budget += number;
+  ebudget.innerHTML = budget;
+
+  localStorage.history += ','+number
+}
+
+window.onload = function(){
+  if(!localStorage.history){
+    localStorage.history = '0'
+  }
+
+  budget = 0;
+
+  h = localStorage.history.split(',')
+
+  for(var i=0;i<h.length;i++){
+    budget += parseInt(h[i]);
+  }
+
+  ebudget.innerHTML = budget;
+}
+
+  </script>
+</head>
+<body>
+<style>
+.b{
+  width:100%;
+  max-width:400px;
+  min-height:30px;
+  padding: 10px;
+}
+
+</style>
+<center>
+
+<p><div style="width:100%;max-width:500px;font-size: 120px" id=ebudget>0</div></p>
+
+<p><input class=b placeholder="Amount" type="number" id="eamount"/></p>
+
+<p><button class=b onclick=add('baht')>Spend (Baht)</button></p>
+
+<p><button class=b onclick=add('usd')>Spend (USD)</button></p>
+
+</center>
+
+
+<br><br><br><br><br><br><br>
+<a href="javascript:localStorage.clear()">Clear localStorage</a>
+</body>
+</html>
