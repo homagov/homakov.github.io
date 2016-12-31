@@ -22,16 +22,21 @@ function add(cur) {
   if(cur == 'baht'){
     number = Math.round(number / 35.8)
   }
+  if(cur == 'salary'){
+    number = - number;
+  }
 
   budget += number;
   ebudget.innerHTML = budget;
 
   localStorage.history += ','+number
+  localStorage.historystamp += ','+new Date()
 }
 
 window.onload = function(){
   if(!localStorage.history){
     localStorage.history = '0'
+    localStorage.historystamp = '0'
   }
 
   budget = 0;
@@ -51,17 +56,18 @@ window.onload = function(){
 <style>
 .b{
   width:100%;
-  max-width:200px;
-  min-height:30px;
+  max-width:800px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-radius: 0;
 }
 
 </style>
 <center>
 
-<p><div style="width:100%;max-width:500px;font-size: 120px" id=ebudget>0</div></p>
+<p><div class="b" style="font-size: 120px" id=ebudget>0</div></p>
 
-<p><input class=b placeholder="Amount" type="text" pattern="\d*" id="eamount"/></p>
+<p><input class=b style="font-size: 80px"  placeholder="Amount" type="text" pattern="\d*" id="eamount"/></p>
 
 <p><button class=b onclick=add('baht')>Spend (Baht)</button></p>
 
@@ -71,6 +77,11 @@ window.onload = function(){
 
 
 <br><br><br><br><br><br><br>
-<a href="javascript:localStorage.clear()">Clear localStorage</a>
+<small>
+<a href="javascript:if(confirm('clear?')){localStorage.clear()}">Clear localStorage</a>
+<a href="javascript:add('salary')">Add salary (USD)</a>
+<a href="javascript:document.write(h.join('<br>'))">Show history</a>
+
+</small>
 </body>
 </html>
