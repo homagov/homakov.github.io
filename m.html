@@ -51,9 +51,9 @@ window.onload = function(){
 <style>
 .b{
   width:100%;
-  max-width:400px;
+  max-width:200px;
   min-height:30px;
-  padding: 10px;
+  border-radius: 0;
 }
 
 </style>
@@ -61,7 +61,7 @@ window.onload = function(){
 
 <p><div style="width:100%;max-width:500px;font-size: 120px" id=ebudget>0</div></p>
 
-<p><input class=b placeholder="Amount" type="text" pattern="\d*-" id="eamount"/></p>
+<p><input class=b placeholder="Amount" type="text" pattern="\d*" id="eamount"/></p>
 
 <p><button class=b onclick=add('baht')>Spend (Baht)</button></p>
 
