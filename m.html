@@ -57,21 +57,23 @@ window.onload = function(){
 .b{
   width:100%;
   max-width:800px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-radius: 0;
 }
 
 </style>
 <center>
 
-<p><div class="b" style="font-size: 120px" id=ebudget>0</div></p>
+<p><input class=b style="font-size: 40px"  placeholder="Amount" type="text" pattern="\d*" id="eamount"/></p>
 
-<p><input class=b style="font-size: 80px"  placeholder="Amount" type="text" pattern="\d*" id="eamount"/></p>
 
-<p><button class=b onclick=add('baht')>Spend (Baht)</button></p>
+<p><div class=b style="background-color: #ccc" onclick=add('baht')>Spend (Baht)</div></p>
 
-<p><button class=b onclick=add('usd')>Spend (USD)</button></p>
+<p><div class=b style="background-color: #ccc" onclick=add('usd')>Spend (USD)</div></p>
+
+<p><div class="b" style="font-size: 80px" id=ebudget>0</div></p>
+
 
 </center>
 
